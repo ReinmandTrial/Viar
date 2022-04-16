@@ -1273,11 +1273,11 @@
                                             </span>
                                         </span>
                                     </label>
-                                    <label class="payment-radio__item">
+                                    <label class="payment-radio__item payment-radio__item--courier">
                                         <input type="radio" name="payment-radio" class="payment-radio__input">
                                         <span class="payment-radio__style">
                                             <span class="payment-radio__icon"></span>
-                                            <span class="payment-radio__text">Оплата курьеру + 5€ </span>
+                                            <span class="payment-radio__text">Оплата курьеру + <span>5€</span> </span>
                                         </span>
                                     </label>
                                 </div>
@@ -1381,7 +1381,51 @@
 
         </div>
 
-
+        <!-- POPUP  -->
+        <div class="popup popup-offer">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <button type="button" class="popup__close">
+                        <img src="images/cart/cancel.svg" alt="">
+                    </button>
+                    <h2 class="popup-offer__title"><span>Выгодное предложенния</span> для ВАС!</h2>
+                    <p class="popup-offer__descr">Замените Ваш заказ на картину <span>размером 55x70</span> (больше
+                        Вашей картины на
+                        1размер) <br>
+                        <span>с выгодной скидкой!</span>
+                    </p>
+                    <div class="popup-offer__block">
+                        <div class="popup-offer__item">
+                            <p class="popup-offer__item-title">Ваш заказ</p>
+                            <div class="popup-offer__item-img">
+                                <img src="images/cart/simple-image.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="popup-offer__item popup-offer__item--large">
+                            <div class="popup-offer__item-vector">
+                                <img src="images/cart/vector1.svg" alt="">
+                            </div>
+                            <p class="popup-offer__item-title">Вместо</p>
+                            <p class="popup-offer__item-old-price"> 35€</p>
+                            <div class="popup-offer__item-img">
+                                <span class="popup-offer__item-tag">
+                                    <img src="images/cart/tag.svg" alt="">
+                                </span>
+                                <img src="images/cart/simple-image.svg" alt="">
+                            </div>
+                            <p class="popup-offer__item-new-price"> 32€</p>
+                        </div>
+                    </div>
+                    <button type="button" class="popup-offer__btn top-btn">
+                        Воспользоватся скидкой
+                        <span class="popup-offer__btn-img">
+                            <img src="images/cart/percent.svg" alt="">
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- POPUP END  -->
 
     </main>
 

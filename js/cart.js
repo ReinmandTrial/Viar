@@ -48,7 +48,6 @@ $(document).ready(function () {
    $('.cart-checkout__coupon-btn').on('click', function () {
       let discountaAmount = "10%";
       let newPrice = '235€';
-      console.log('new');
 
 
       $(this).closest('.cart-sidebar').find('.cart-checkout__head.main-price').addClass('old-price');
@@ -60,6 +59,21 @@ $(document).ready(function () {
       $(this).closest('.cart-sidebar').find('.cart-checkout__coupon').hide();
    })
    // coupon
+   // courier
+   $('input[name="payment-radio"]').on('click', function () {
+      if ($(this).closest('.payment-radio__item').hasClass('payment-radio__item--courier')) {
+         let amount = $(this).closest('.payment-radio__item').find('.payment-radio__text span').text();
+
+         $('.cart-checkout__rows').append(`<dl
+         class="cart-checkout__row cart-checkout__row--courier">
+         <dt class="cart-checkout__row-title">Оплата курьеру: </dt>
+         <dd class="cart-checkout__row-descr"> ${amount}</dd>
+         </dl>`);
+      } else {
+         $('.cart-checkout__row--courier').remove();
+      }
+   })
+   // courier
 
    // select
    $('.js-select-head').on('click', function () {
@@ -83,16 +97,16 @@ $(document).ready(function () {
       }
    })
    $('.js-select-body-item').on('click', function () {
-      let thisText = $(this).find('.js-select-text').text();
+      let thisText = $(this).find('.js-select-text').html();
 
-      $(this).closest('.js-select').find('.js-select-head-text').text(thisText);
+      $(this).closest('.js-select').find('.js-select-head-text').html(thisText);
       $(this).closest('.js-select').find('.js-select-head-value').val(thisText);
       $(this).closest('.js-select').find('.js-select-head').addClass('fill')
 
       $(this).closest('.js-select').removeClass('active');
       $(this).closest('.js-select').find('.js-select-body').slideUp();
    })
-   // select
+   // select 
 
    // steps
    $('.cart-checkout__btn').on('click', function () {
@@ -113,6 +127,12 @@ $(document).ready(function () {
          block.removeClass('cart--step-one');
          block.addClass('cart--step-two');
          $(this).text(textBtn2);
+
+         $('.cart-progress').animate({
+            scrollLeft: '+=300'
+         });
+         $('.cart-main__btn-back.--mobile').show();
+
       } else if (block.hasClass('cart--step-two')) {
          block.find('.cart-progress__item--step-two').removeClass('active');
          block.find('.cart-progress__item--step-two').addClass('passed');
@@ -121,6 +141,8 @@ $(document).ready(function () {
          block.find('.cart-main--step-three').show();
          block.removeClass('cart--step-two');
          block.addClass('cart--step-three');
+
+
          $(this).text(textBtn3);
       } else if (block.hasClass('cart--step-three')) {
          block.find('.cart-progress__item--step-three').removeClass('active');
@@ -147,6 +169,10 @@ $(document).ready(function () {
 
          $(this).text(textBtn4);
       }
+      $('html').animate({
+         scrollTop: '0'
+      });
+
    })
    $('.cart-main__btn-back').on('click', function () {
 
@@ -165,7 +191,11 @@ $(document).ready(function () {
          block.find('.cart-main--step-one').show();
          block.removeClass('cart--step-two');
          block.addClass('cart--step-one');
+         $('.cart-progress').animate({
+            scrollLeft: '-=300'
+         });
          block.find('.cart-checkout__btn').text(textBtn1);
+         $('.cart-main__btn-back.--mobile').hide();
       } else if (block.hasClass('cart--step-three')) {
          block.find('.cart-progress__item--step-three').removeClass('active');
          block.find('.cart-progress__item--step-two').removeClass('passed');
@@ -187,6 +217,9 @@ $(document).ready(function () {
 
          block.find('.cart-checkout__btn').text(textBtn3);
       }
+      $('html').animate({
+         scrollTop: '0'
+      });
    })
 
    // steps
