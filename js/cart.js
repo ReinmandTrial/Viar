@@ -131,7 +131,9 @@ $(document).ready(function () {
          $('.cart-progress').animate({
             scrollLeft: '+=300'
          });
-         $('.cart-main__btn-back.--mobile').show();
+         if ($(window).width() < 1200) {
+            $('.cart-main__btn-back.--mobile').show();
+         }
 
       } else if (block.hasClass('cart--step-two')) {
          block.find('.cart-progress__item--step-two').removeClass('active');
@@ -195,7 +197,9 @@ $(document).ready(function () {
             scrollLeft: '-=300'
          });
          block.find('.cart-checkout__btn').text(textBtn1);
-         $('.cart-main__btn-back.--mobile').hide();
+         if ($(window).width() < 1200) {
+            $('.cart-main__btn-back.--mobile').hide();
+         }
       } else if (block.hasClass('cart--step-three')) {
          block.find('.cart-progress__item--step-three').removeClass('active');
          block.find('.cart-progress__item--step-two').removeClass('passed');
